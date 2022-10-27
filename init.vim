@@ -31,6 +31,6 @@ syntax on " Turns on syntax highlighting
 " Vim plugins
 call plug#begin()
 
-
+Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 
 call plug#end()
