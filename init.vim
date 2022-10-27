@@ -27,3 +27,10 @@ filetype plugin on " Enable plugins and load plugin for the detected file type
 filetype indent on " Load an indent file for detected file type
 
 syntax on " Turns on syntax highlighting
+
+" Vim plugins
+call plug#begin()
+
+
+
+call plug#end()
