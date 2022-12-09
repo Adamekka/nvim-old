@@ -89,5 +89,56 @@ return require('packer').startup({
                 require('numToStr.plugins.diffview')
             end,
         })
+
+        -- Navigation and FZF
+        use({
+            'nvim-tree/nvim-tree.lua',
+            event = 'CursorHold',
+            config = function()
+                require('numToStr.plugins.nvim-tree')
+            end,
+        })
+        use({
+            {
+                'nvim-telescope/telescope.nvim',
+                event = 'CursorHold',
+                config = function()
+                    require('numToStr.plugins.telescope')
+                end,
+            },
+            {
+                'nvim-telescope/telescope-fzf-native.nvim',
+                after = 'telescope.nvim',
+                run = 'make',
+                config = function()
+                    require('telescope').load_extension('fzf')
+                end,
+            },
+            {
+                'nvim-telescope/telescope-symbols.nvim',
+                after = 'telescope.nvim',
+            },
+        })
+        use({
+            'numToStr/Navigator.nvim',
+            event = 'CursorHold',
+            config = function()
+                require('numToStr.plugins.navigator')
+            end,
+        })
+        use({
+            'phaazon/hop.nvim',
+            event = 'BufRead',
+            config = function()
+                require('numToStr.plugins.hop')
+            end,
+        })
+        use({
+            'karb94/neoscroll.nvim',
+            event = 'WinScrolled',
+            config = function()
+                require('neoscroll').setup({ hide_cursor = false })
+            end,
+        })
     end
 })
