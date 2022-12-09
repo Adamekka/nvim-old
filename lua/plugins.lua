@@ -35,7 +35,6 @@ return require('packer').startup({
         })
 
         -- Better highlights
-
         use({
             {
                 'nvim-treesitter/nvim-treesitter',
@@ -51,5 +50,22 @@ return require('packer').startup({
             { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' },
             { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter' },
         })
+
+        -- Editor UI Niceties
+        use({
+            'lukas-reineke/indent-blankline.nvim',
+            event = 'BufRead',
+            config = function()
+                require('numToStr.plugins.indentline')
+            end,
+        })
+        use({
+            'norcalli/nvim-colorizer.lua',
+            event = 'CursorHold',
+            config = function()
+                require('colorizer').setup()
+            end,
+        })
+
     end
 })
