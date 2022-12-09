@@ -1,1 +1,2 @@
+require('keybindings')
 require('settings')
