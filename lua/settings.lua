@@ -58,7 +58,7 @@ o.jumpoptions = 'view'
 o.splitkeep = 'screen'
 
 -- Improve diff
-vim.opt.diffopt:append('linematch:60')
+-- vim.opt.diffopt:append('linematch:60')
 
 -- Map <leader> to space
 g.mapleader = ' '
