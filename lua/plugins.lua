@@ -67,5 +67,27 @@ return require('packer').startup({
             end,
         })
 
+        -- Git stuff
+        use({
+            'lewis6991/gitsigns.nvim',
+            event = 'BufRead',
+            config = function()
+                require('numToStr.plugins.gitsigns')
+            end,
+        })
+        use({
+            'rhysd/git-messenger.vim',
+            event = 'BufRead',
+            config = function()
+                require('numToStr.plugins.git-messenger')
+            end,
+        })
+        use({
+            'sindrets/diffview.nvim',
+            event = 'BufRead',
+            config = function()
+                require('numToStr.plugins.diffview')
+            end,
+        })
     end
 })
