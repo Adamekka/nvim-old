@@ -34,5 +34,22 @@ return require('packer').startup({
             end,
         })
 
+        -- Better highlights
+
+        use({
+            {
+                'nvim-treesitter/nvim-treesitter',
+                event = 'CursorHold',
+                run = ':TSUpdate',
+                config = function()
+                    require('numToStr.plugins.treesitter')
+                end,
+            },
+            { 'nvim-treesitter/playground', after = 'nvim-treesitter' },
+            { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' },
+            { 'nvim-treesitter/nvim-treesitter-refactor', after = 'nvim-treesitter' },
+            { 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' },
+            { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter' },
+        })
     end
 })
